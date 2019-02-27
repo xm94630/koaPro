@@ -9,6 +9,9 @@ const logger = require('koa-logger')
 const index = require('./routes/index')
 const users = require('./routes/users')
 
+const pv = require('./midware/koa-pv')
+app.use(pv())
+
 // error handler
 onerror(app)
 
