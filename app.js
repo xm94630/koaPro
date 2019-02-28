@@ -6,11 +6,20 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 
+const mongoose = require('mongoose')
+const dbConfig = require('./dbs/config')
+
 const index = require('./routes/index')
 const users = require('./routes/users')
 
 const pv = require('./midware/koa-pv')
 app.use(pv())
+
+mongoose.connect(
+  dbConfig.dbs,{
+    useNewUrlParser:true
+  }
+)
 
 // error handler
 onerror(app)
