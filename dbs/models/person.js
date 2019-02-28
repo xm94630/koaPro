@@ -6,4 +6,4 @@ let personSchema = mongoose.Schema({
   'age':Number
 })
 
-module.exports = new mongoose.models('Person',personScharm)
+module.exports = new mongoose.model('Person',personSchema)
