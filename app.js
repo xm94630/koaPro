@@ -12,6 +12,17 @@ const dbConfig = require('./dbs/config')
 const index = require('./routes/index')
 const users = require('./routes/users')
 
+const Redis   = require('koa-redis')
+const session = require('koa-generic-session') 
+
+app.keys=['keys','keyskeys']
+app.use(session({
+  key:'xm',
+  prefix:"lalala",
+  store:new Redis()
+}))
+
+
 const pv = require('./midware/koa-pv')
 app.use(pv())
 
